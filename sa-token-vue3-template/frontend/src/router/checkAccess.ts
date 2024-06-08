@@ -17,7 +17,7 @@ export enum ACCESS_ENUM {
  * @param role
  */
 export function checkAccess(user: UserVO, role: 'ban' | 'user' | 'admin'): boolean {
-  const loginUserAccess = user?.role || ACCESS_ENUM.BAN
+  const loginUserAccess = user?.role || ACCESS_ENUM.USER
   // 禁用用户不能进入
   if (role === ACCESS_ENUM.BAN) {
     return false
