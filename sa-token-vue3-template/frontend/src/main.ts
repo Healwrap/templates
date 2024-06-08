@@ -3,10 +3,6 @@ import '@/styles/style.scss'
 import '@/styles/common.scss'
 // 这个需要再安装一个bytemd
 import 'bytemd/dist/index.css'
-// 引入highlight.js样式 atom样式
-// import 'highlight.js/styles/atom-one-dark-reasonable.min.css'
-// 数学公式
-import 'katex/dist/katex.min.css'
 import { createApp } from 'vue'
 import App from '@/App.vue'
 // 引入andv icon

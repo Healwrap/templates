@@ -9,17 +9,20 @@ import eslintPlugin from 'vite-plugin-eslint'
 import viteCompression from 'vite-plugin-compression'
 import { envParse } from 'vite-plugin-env-parse'
 // import vsharp from 'vite-plugin-vsharp'
-import progress from 'vite-plugin-progress'
 import postcssPresetEnv from 'postcss-preset-env'
 import { VueAmapResolver } from '@vuemap/unplugin-resolver'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   return {
     plugins: [
-      progress(),
+      // progress(),
       vue(),
+      visualizer({
+        open: true, //如果存在本地服务端口，将在打包后自动展示
+      }),
       eslintPlugin(),
       envParse(),
       // 图片压缩
@@ -100,16 +103,6 @@ export default defineConfig(({ command, mode }) => {
           chunkFileNames: 'static/js/[name]-[hash].js',
           entryFileNames: 'static/js/[name]-[hash].js',
           assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
-          // manualChunks(id) {
-          //   //静态资源分拆打包
-          //   if (id.includes('node_modules')) {
-          //     return `node_modules/${id
-          //       .toString()
-          //       .split('node_modules/')[1] //
-          //       .split('/')[1]
-          //       .toString()}`
-          //   }
-          // },
         },
       },
     },

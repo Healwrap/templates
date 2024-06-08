@@ -8,6 +8,7 @@ const getPosition = () => {
     navigator.geolocation.getCurrentPosition((pos) => {
       position.value[0] = pos.coords.longitude
       position.value[1] = pos.coords.latitude
+      console.log(position.value)
     })
   } else {
     console.log('Geolocation is not supported by this browser.')
