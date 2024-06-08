@@ -125,6 +125,26 @@ export function getAsyncRouterMap(): IRouter[] {
           component: () => import('@/views/tools/editor/index.vue'),
         },
         {
+          name: 'Markdown编辑器',
+          path: '/mdEditor',
+          meta: {
+            icon: 'FontSizeOutlined',
+            title: 'Markdown编辑器',
+            requireAuth: true,
+          },
+          component: () => import('@/views/tools/mdEditor/index.vue'),
+        },
+        {
+          name: '地图',
+          path: '/map',
+          meta: {
+            icon: 'FontSizeOutlined',
+            title: '地图',
+            requireAuth: true,
+          },
+          component: () => import('@/views/tools/map/index.vue'),
+        },
+        {
           name: '大屏',
           path: '/largeScreen',
           meta: {
