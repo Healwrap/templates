@@ -11,6 +11,7 @@ import { envParse } from 'vite-plugin-env-parse'
 // import vsharp from 'vite-plugin-vsharp'
 import progress from 'vite-plugin-progress'
 import postcssPresetEnv from 'postcss-preset-env'
+import { VueAmapResolver } from '@vuemap/unplugin-resolver'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -40,11 +41,11 @@ export default defineConfig(({ command, mode }) => {
       // 配置自动导导入
       AutoImport({
         // imports: ['vue', 'vue-router'],
-        // resolvers: [VueAmapResolver()],
       }),
       // 配置自动导入组件
       Components({
         resolvers: [
+          VueAmapResolver(),
           AntDesignVueResolver({
             // 自动导入组件
             importStyle: false,
