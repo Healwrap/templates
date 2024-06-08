@@ -97,12 +97,19 @@ export default defineConfig(({ command, mode }) => {
           drop_debugger: true,
         },
       },
-      // 分包
+      // 打包目录结构控制
       rollupOptions: {
         output: {
           chunkFileNames: 'static/js/[name]-[hash].js',
           entryFileNames: 'static/js/[name]-[hash].js',
-          assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.name.endsWith('.css')) {
+              return 'static/css/[name]-[hash].[ext]'
+            } else if (['.jpg', '.png', '.gif', '.svg'].some(ext => assetInfo.name.endsWith(ext))) {
+              return 'static/img/[name]-[hash].[ext]'
+            }
+            return 'static/assets/[name]-[hash].[ext]'
+          },
         },
       },
     },
