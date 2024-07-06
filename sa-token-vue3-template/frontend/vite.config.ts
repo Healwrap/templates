@@ -15,8 +15,9 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
+  const env = loadEnv(mode, process.cwd(), 'env')
   return {
+    envDir: './env', // 自定义env目录
     plugins: [
       // progress(),
       vue(),
