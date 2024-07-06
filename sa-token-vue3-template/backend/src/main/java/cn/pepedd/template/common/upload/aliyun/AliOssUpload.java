@@ -9,6 +9,7 @@ import com.aliyun.oss.model.GenericRequest;
 import com.aliyun.oss.model.PutObjectRequest;
 import com.aliyun.oss.model.VoidResult;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,6 +24,7 @@ import java.io.InputStream;
  * @since 2024/5/31
  */
 @Component
+@ConditionalOnProperty(name = "oss.aliyun.enabled",havingValue = "true")
 public class AliOssUpload implements FileUpload {
   @Value("${oss.aliyun.project-name}")
   private String projectName;

@@ -1,6 +1,7 @@
 package cn.pepedd.template.common.upload.tencent;
 
 import cn.pepedd.template.common.upload.FileUpload;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @since 2024/5/31
  */
 @Component
+@ConditionalOnProperty(name = "oss.tencent.enabled",havingValue = "true")
 public class TencentOssUpload implements FileUpload {
   /**
    * 上传文件

@@ -2,9 +2,9 @@ package cn.pepedd.template.common.upload;
 
 import cn.pepedd.template.common.upload.aliyun.AliOssUpload;
 import cn.pepedd.template.common.upload.tencent.TencentOssUpload;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * 文件上传工厂类，获取各种文件上传实现类
@@ -13,10 +13,11 @@ import javax.annotation.Resource;
  * @since 2024/5/31
  */
 @Component
+@ConditionalOnProperty(name = "oss.enabled", havingValue = "true")
 public class FileUploadFactory {
-  @Resource
+  @Autowired(required = false)
   private AliOssUpload aliOssUpload;
-  @Resource
+  @Autowired(required = false)
   private TencentOssUpload tencentOssUpload;
 
   public FileUploadProxy newInstance(String type) {

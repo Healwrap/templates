@@ -33,10 +33,12 @@ sa-token:
 server:
   port: 8081
 oss:
+  enabled: false
   aliyun:
-    endpoint: ${oss.aliyun.endpoint} # 接入点
-    project-name: ${oss.aliyun.project-name} # 项目名称
-    access-key-id: ${oss.aliyun.access-key-id} # 访问密钥ID
-    access-key-secret: ${oss.aliyun.access-key-secret} # 访问密钥密钥
-    bucket-name: ${oss.aliyun.bucket-name} # 存储空间名称
-    domain: ${oss.aliyun.domain} # 域名
+    enabled: false
+    endpoint: '' # 接入点
+    project-name: '' # 项目名称
+    access-key-id: '' # 访问密钥ID
+    access-key-secret: '' # 访问密钥密钥
+    bucket-name: '' # 存储空间名称
+    domain: '' # 域名
